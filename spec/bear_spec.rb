@@ -44,6 +44,28 @@ class TestBear < MiniTest::Test
     assert_equal([@fish_01], @bear_01.food_eaten)
   end
 
+  def test_hunger__not_eaten
+    actual = @bear_01.hunger
+    assert_equal(1000, actual)
+  end
 
+  def test_hunger__eaten
+    @bear_01.fish_the_fish(@fish_02, @river)
+    actual = @bear_01.hunger
+    assert_equal(950, actual)
+  end
+
+  def test_how_hungry__not_eaten
+    actual = @bear_01.how_hungry
+    expected = "I still need 1000 calories today!"
+    assert_equal(expected, actual)
+  end
+
+  def test_how_hungry__eaten
+    @bear_03.fish_the_fish(@fish_01, @river)
+    expected = "I still need 150 calories today!"
+    actual = @bear_03.how_hungry
+    assert_equal(expected, actual)
+  end
 
 end

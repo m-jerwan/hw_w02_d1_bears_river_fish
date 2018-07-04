@@ -7,7 +7,9 @@ class Fish
   def initialize(name, type)
     @name = name
     @type = type
-    @nutritional_value = 0 #-----how to contition that????
+    @nutritional_value =  100 if @type == "Surgeonfish"
+    @nutritional_value =   50 if @type == "ClownFish"
+    @nutritional_value =   25 if @type == "Goldfish"
   end
 
 #--------------------------------------------
@@ -20,10 +22,8 @@ def name
   return @name
 end
 
-def nutritional_value #-----how to contition that????
-  return 100 if @type == "Surgeonfish"
-  return 50 if @type == "ClownFish"
-  return 25 if @type == "Goldfish"
+def nutritional_value
+  return @nutritional_value
 end
 
 
