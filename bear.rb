@@ -31,7 +31,7 @@ class Bear
 
 
   def fish_the_fish(fish, river)    #how to make this so river doesnt have to be passed?
-    @river.loose_fish(fish)
+    river.loose_fish(fish)
     @stomach << fish
   end
 
